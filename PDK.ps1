@@ -107,7 +107,8 @@ Write-host "Zmienić? y/n" -ForegroundColor Green
 $flaga = Read-host
 if($flaga -eq "y"){
 Write-host "Wpisz nowy numer inwentarzowy...   "
-$CIID = Read-host 
+$CIID = Read-host
+#Tutaj należy zmienić ścieżke rejestru na używaną domyślnie przez firmę
 reg add \\$computer_name\HKLM\SYSTEM\CIID\ /v InvSerial /f /t REG_SZ /d $CIID
 Write-host "Dodano numer inwentarzowy."
 Write-host "W celu poprawnego zapisu wszystkich danych do pliku uruchamiam skrypt ponownie."
@@ -127,18 +128,3 @@ Write-host 'Marka           :   '$Manufacturer[2] *>> "$computer_name.txt"
 Write-host 'Domena          :   '$Domain[2] *>> "$computer_name.txt"
 
 Write-host "Zakończono." -ForegroundColor Green 
-
-
-
-
-#wmic NIC Where "NetConnectionID='Ethernet'" Get MACAddress
-
-
-#\\$work = ipconfig
-#//($work.Message -split '\n')[0]
-#//echo $work[4]
-
-
-
-
-
